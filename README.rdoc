@@ -2,12 +2,28 @@
 
 This project is about developing a new system to manage the bus schedule of a bus company.
 
+This project uses <tt>Rails</tt>, <tt>RVM</tt>, and <tt>MySQL</tt> for the following reasons.
+
+* Use <tt>activerecord</tt> to model the business objects and their relationship.
+
+* To demostrate that the data can be stored in the database.
+
+* Use <tt>RVM</tt> so that everything is in a "gemset" without interfering with the other software the individual developer might have.
+
 === Environment Preparation
 
-Refer to <tt>config/grant_sql_user</tt> for creating the database user required.
+You need create the database user required.  To do so, refer to <tt>config/grant_sql_user</tt>
 
-Use these commands for preparing the environment.
+Use the following commands to prepare your environment.
 
 * <tt>bin/use_example_config_files</tt> will use the example config files to prepare your environment.
 
 * <tt>bin/check_config_files</tt> will check if you have all the required config files.
+
+* <tt>rvm install 2.2.1</tt> to install the ruby version using <tt>rvm</tt>.
+
+* <tt>cd && cd -</tt> to activate the <tt>gemset</tt>.
+
+* <tt>bundle</tt> to install the gem dependencies.
+
+* <tt>rake db:migrate:reset</tt> creates the databases.
