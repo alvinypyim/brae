@@ -1,8 +1,10 @@
-== Readme
+== README
 
 This project is about developing a new system to manage the bus schedule of a bus company.
 
 === Environment Preparation
+
+Refer to <tt>config/grant_sql_user</tt> for creating the database user required.
 
 Use these commands for preparing the environment.
 
