@@ -11,6 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150907163849) do
+
+  create_table "bus_assignments", force: :cascade do |t|
+    t.integer  "bus_id",     limit: 4, null: false
+    t.integer  "line_id",    limit: 4, null: false
+    t.time     "depart_at",            null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "bus_assignments", ["bus_id"], name: "index_bus_assignments_on_bus_id", using: :btree
+  add_index "bus_assignments", ["line_id"], name: "index_bus_assignments_on_line_id", using: :btree
+
+  create_table "bus_lines", force: :cascade do |t|
+    t.string   "number",     limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "buses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "route_stop_links", force: :cascade do |t|
+    t.integer  "route_id",   limit: 4, null: false
+    t.integer  "stop_id",    limit: 4, null: false
+    t.integer  "link_order", limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "route_stop_links", ["link_order"], name: "index_route_stop_links_on_link_order", using: :btree
+  add_index "route_stop_links", ["route_id", "stop_id"], name: "index_route_stop_links_on_route_id_and_stop_id", using: :btree
+
+  create_table "routes", force: :cascade do |t|
+    t.string   "name",        limit: 255, null: false
+    t.integer  "line_id",     limit: 4,   null: false
+    t.integer  "route_order", limit: 4,   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "routes", ["line_id"], name: "index_routes_on_line_id", using: :btree
+  add_index "routes", ["route_order"], name: "index_routes_on_route_order", using: :btree
+
+  create_table "stops", force: :cascade do |t|
+    t.string   "code",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
 end
