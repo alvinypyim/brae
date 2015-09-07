@@ -8,4 +8,7 @@
 #
 
 class Bus < ActiveRecord::Base
+
+has_many :bus_assignments, dependent: :destroy
+
 end

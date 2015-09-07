@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(version: 20150907163849) do
 
   create_table "bus_assignments", force: :cascade do |t|
-    t.integer  "bus_id",     limit: 4, null: false
-    t.integer  "line_id",    limit: 4, null: false
-    t.time     "depart_at",            null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "bus_id",      limit: 4, null: false
+    t.integer  "bus_line_id", limit: 4, null: false
+    t.time     "depart_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "bus_assignments", ["bus_id"], name: "index_bus_assignments_on_bus_id", using: :btree
-  add_index "bus_assignments", ["line_id"], name: "index_bus_assignments_on_line_id", using: :btree
+  add_index "bus_assignments", ["bus_line_id"], name: "index_bus_assignments_on_bus_line_id", using: :btree
 
   create_table "bus_lines", force: :cascade do |t|
     t.string   "number",     limit: 255, null: false
@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 20150907163849) do
 
   create_table "routes", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
-    t.integer  "line_id",     limit: 4,   null: false
+    t.integer  "bus_line_id", limit: 4,   null: false
     t.integer  "route_order", limit: 4,   null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
-  add_index "routes", ["line_id"], name: "index_routes_on_line_id", using: :btree
+  add_index "routes", ["bus_line_id"], name: "index_routes_on_bus_line_id", using: :btree
   add_index "routes", ["route_order"], name: "index_routes_on_route_order", using: :btree
 
   create_table "stops", force: :cascade do |t|

@@ -9,4 +9,8 @@
 #
 
 class BusLine < ActiveRecord::Base
+
+has_many :bus_assignments, dependent: :destroy
+has_many :routes, dependent: :destroy
+
 end

@@ -9,4 +9,7 @@
 #
 
 class Stop < ActiveRecord::Base
+
+has_many :route_stop_links, dependent: :destroy
+
 end
