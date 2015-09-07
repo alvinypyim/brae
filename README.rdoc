@@ -2,6 +2,8 @@
 
 This project is about developing a new system to manage the bus schedule of a bus company.
 
+Please check out the relationship diagram <tt>doc/relationship.draw.io.xml</tt> for your reference.
+
 This project uses <tt>Rails</tt>, <tt>RVM</tt>, and <tt>MySQL</tt> for the following reasons.
 
 * Use <tt>activerecord</tt> to model the business objects and their relationship.
