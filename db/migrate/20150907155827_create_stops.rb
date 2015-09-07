@@ -4,6 +4,7 @@ class CreateStops < ActiveRecord::Migration
       t.string :code, null: false
 
       t.timestamps null: false
+      t.index :code
     end
   end
 end

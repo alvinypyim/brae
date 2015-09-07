@@ -63,4 +63,6 @@ ActiveRecord::Schema.define(version: 20150907163849) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "stops", ["code"], name: "index_stops_on_code", using: :btree
+
 end

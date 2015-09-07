@@ -32,10 +32,31 @@ Use the following commands to prepare your environment.
 
 The system allows adding and removing buses.
 
-  Bus.new.save
+  Bus.create
   Bus.find(1).destroy
 
-The system allows defining stops
+The system allows defining stops.
 
-  Stop.new.tap { |s| s.code = 'a11' }.save
-  Stop.new.tap { |s| s.code = 'b22' }.save
+  Stop.create code: 'a11'
+  Stop.create code: 'b22'
+
+The system allows defining routes.
+
+  r = Route.new(name: 'Marion Express from City', route_order: 1)
+  r.route_stop_links.build stop_id: Stop.where(code: 'a11').first.id, link_order: 1
+  r.route_stop_links.build stop_id: Stop.where(code: 'b22').first.id, link_order: 2
+  r.save
+
+The system allows defining lines.
+
+  l = BusLine.new(number: 'M44X')
+  l.routes << Route.where(name: 'Marion Express from City').first
+  l.routes << Route.where(name: 'Marion Express to City').first
+  l.save
+
+The system allows assigning a line and a time schedule to a bus.
+
+  b = Bus.find(2)
+  b.bus_assignments.build bus_line: BusLine.where(number: 'M44X').first, depart_at: '18:30'
+  b.save
+  
