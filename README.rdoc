@@ -34,3 +34,8 @@ The system allows adding and removing buses.
 
   Bus.new.save
   Bus.find(1).destroy
+
+The system allows defining stops
+
+  Stop.new.tap { |s| s.code = 'a11' }.save
+  Stop.new.tap { |s| s.code = 'b22' }.save
