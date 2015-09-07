@@ -27,3 +27,10 @@ Use the following commands to prepare your environment.
 * <tt>bundle</tt> to install the gem dependencies.
 
 * <tt>rake db:migrate:reset</tt> creates the databases.
+
+=== Features
+
+The system allows adding and removing buses.
+
+  Bus.new.save
+  Bus.find(1).destroy
