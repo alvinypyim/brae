@@ -1,0 +1,11 @@
+== Readme
+
+This project is about developing a new system to manage the bus schedule of a bus company.
+
+=== Environment Preparation
+
+Use these commands for preparing the environment.
+
+* <tt>bin/use_example_config_files</tt> will use the example config files to prepare your environment.
+
+* <tt>bin/check_config_files</tt> will check if you have all the required config files.
