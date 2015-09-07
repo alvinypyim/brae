@@ -28,6 +28,8 @@ Use the following commands to prepare your environment.
 
 * <tt>rake db:migrate:reset</tt> creates the databases.
 
+* <tt>rails c</tt> to start the <tt>rails</tt> console.
+
 === Features
 
 The system allows adding and removing buses.
